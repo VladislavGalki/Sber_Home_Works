@@ -7,18 +7,23 @@
 
 import UIKit
 
+protocol ViewHitRangeDelegate: AnyObject {
+    func configureRanges(ranX: ClosedRange<CGFloat>, ranY: ClosedRange<CGFloat>)
+}
+
 class ViewController: UIViewController {
     
-    lazy var circle: Circle = {
-        let circle = Circle(radius: 100)
-        circle.backgroundColor = .orange
-        return circle
-    }()
+    var minX: CGFloat = 0.0
+    var maxX: CGFloat = 0.0
+    var minY: CGFloat = 0.0
+    var maxY: CGFloat = 0.0
     
-    lazy var whiteCircle: Circle = {
-        let whiteCircle = Circle(radius: 50)
-        whiteCircle.backgroundColor = self.view.backgroundColor
-        return whiteCircle
+    weak var delegate: ViewHitRangeDelegate?
+    
+    lazy var circle: Circle = {
+        let circle = Circle()
+        circle.backgroundColor = .clear
+        return circle
     }()
     
     lazy var circleButton: UIButton = {
@@ -29,24 +34,30 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegate = circle
         view.backgroundColor = .white
-        view.addSubview(circle)
         view.addSubview(circleButton)
-        view.addSubview(whiteCircle)
+        view.addSubview(circle)
+        
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        circle.frame = .init(x: 0, y: 0, width: 200, height: 200)
+        circle.frame = .init(x: 0, y: 0, width: 300, height: 300)
         circle.center = view.center
-        whiteCircle.frame = .init(x: 0, y: 0, width: 100, height: 100)
-        whiteCircle.center = circle.center
-        circleButton.frame = whiteCircle.frame
-        circleButton.center = whiteCircle.center
+        circleButton.frame = .init(x: 0, y: 0, width: 90, height: 90)
+        circleButton.layer.cornerRadius = circleButton.bounds.width * 0.5
+        circleButton.center = view.center
+        
+        minX = circle.bounds.width / 2 - circleButton.bounds.width / 2
+        maxX = circle.bounds.width / 2 + circleButton.bounds.width / 2
+        minY = circle.bounds.height / 2 - circleButton.bounds.height / 2
+        maxY = circle.bounds.height / 2 + circleButton.bounds.height / 2
+        circle.configureRanges(ranX: minX...maxX, ranY: minY...maxY)
     }
     
     @objc func hitResponder() {
-        print("Hit responder")
+        print(minX, maxX, minY, maxY)
     }
 }
 
