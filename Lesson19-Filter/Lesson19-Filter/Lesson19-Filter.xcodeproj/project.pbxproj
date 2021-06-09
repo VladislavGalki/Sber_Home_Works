@@ -60,17 +60,41 @@
 		044CC8A126700F2400935B35 /* Lesson19-Filter */ = {
 			isa = PBXGroup;
 			children = (
+				044CC8C226711EB900935B35 /* Model */,
+				044CC8C126711EB200935B35 /* View */,
+				044CC8C026711EA600935B35 /* Controller */,
 				044CC8A226700F2400935B35 /* AppDelegate.swift */,
-				044CC8A626700F2400935B35 /* ViewController.swift */,
-				044CC8BE2670ECFA00935B35 /* PresentationController.swift */,
-				044CC8BA26703B1800935B35 /* IntencyViewController.swift */,
-				044CC8B82670271100935B35 /* Filter.swift */,
-				044CC8B6267018D200935B35 /* CollectionVIewCell.swift */,
 				044CC8AB26700F2600935B35 /* Assets.xcassets */,
 				044CC8AD26700F2600935B35 /* LaunchScreen.storyboard */,
 				044CC8B026700F2600935B35 /* Info.plist */,
 			);
 			path = "Lesson19-Filter";
+			sourceTree = "<group>";
+		};
+		044CC8C026711EA600935B35 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				044CC8BA26703B1800935B35 /* IntencyViewController.swift */,
+				044CC8A626700F2400935B35 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		044CC8C126711EB200935B35 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				044CC8B6267018D200935B35 /* CollectionVIewCell.swift */,
+				044CC8BE2670ECFA00935B35 /* PresentationController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		044CC8C226711EB900935B35 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				044CC8B82670271100935B35 /* Filter.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

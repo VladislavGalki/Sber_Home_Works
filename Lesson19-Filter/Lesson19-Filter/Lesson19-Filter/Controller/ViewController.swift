@@ -8,8 +8,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let filterHelper = Filter()
-    var filteredImage = [UIImage]()
+    let filterManager: Filter
     var selectedImage = UIImage()
     var filterName = String()
     
@@ -18,7 +17,7 @@ class ViewController: UIViewController {
         return tap
     }()
     
-    private lazy var preferencesButton: UIButton = {
+    private lazy var settingsButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "gear"), for: .normal)
         button.tintColor = .black
@@ -60,12 +59,20 @@ class ViewController: UIViewController {
         return collection
     }()
     
+    init(filterManager: Filter) {
+        self.filterManager = filterManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        let settings = UIBarButtonItem(customView: preferencesButton)
+        let settings = UIBarButtonItem(customView: settingsButton)
         navigationItem.setRightBarButton(settings, animated: true)
-        
         view.addSubview(imageView)
         view.addSubview(collectionView)
         setupUI()
@@ -101,7 +108,7 @@ class ViewController: UIViewController {
         intensyVC.transitioningDelegate = self
         intensyVC.intensityValue = { [weak self] value in
             guard let self = self else { return }
-            self.imageView.image = self.filterHelper.createPhotoFIlter(image: self.selectedImage, filterName: self.filterName, intensity: value)
+            self.imageView.image = self.filterManager.createPhotoFIlter(image: self.selectedImage, filterName: self.filterName, intensity: value)
         }
         present(intensyVC, animated: true, completion: nil)
     }
@@ -117,18 +124,18 @@ extension ViewController: UIViewControllerTransitioningDelegate {
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        filterName = filterHelper.filters[indexPath.item]
+        filterName = filterManager.filters[indexPath.item]
         navigationItem.title = filterName
-        imageView.image = filteredImage[indexPath.item]
+        imageView.image = filterManager.outputFilteredImage[indexPath.item]
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filteredImage.count
+        return filterManager.outputFilteredImage.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionVIewCell.identifier, for: indexPath) as? CollectionVIewCell else { return UICollectionViewCell() }
-        cell.filteredImage.image = filteredImage[indexPath.item]
+        cell.filteredImage.image = filterManager.outputFilteredImage[indexPath.item]
         return cell
     }
 }
@@ -139,11 +146,9 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         guard let image = info[.editedImage] as? UIImage else { return }
         selectedImage = image
         imageView.image = selectedImage
-        
-        filteredImage = filterHelper.filters.map({ [self] item in
-            filterHelper.createPhotoFIlter(image: selectedImage, filterName: item, intensity: 0.5)
+        filterManager.outputFilteredImage = filterManager.filters.map({ [self] item in
+            filterManager.createPhotoFIlter(image: selectedImage, filterName: item, intensity: 0.5)
         })
-        
         collectionView.isHidden = false
         collectionView.reloadData()
         dismiss(animated: true, completion: nil)

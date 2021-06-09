@@ -8,6 +8,8 @@ import UIKit
 
 final class Filter {
     
+    var outputFilteredImage = [UIImage]()
+    
     let filters = CIFilter.filterNames(inCategories: nil).filter {
         CIFilter(name: $0)?.inputKeys.contains("inputImage") ?? false &&
             (CIFilter(name: $0)?.inputKeys.contains("inputIntensity") ?? false ||
