@@ -1,0 +1,28 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "5d0c940ced062ab69c5a921704381bad8d9d4052",
+  "iOS" : [
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "8fec00b74770fdcbce50916a840bea614141f35951d359c3d4d8a2bbc9306249",
+      "name" : "fraemworkSberCarthage",
+      "container" : "fraemworkSberCarthage.xcframework",
+      "identifier" : "ios-arm64"
+    },
+    {
+      "swiftToolchainVersion" : "5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)",
+      "hash" : "089f17c3fdb4326d41a1acf93ba61ae7ac52b4d663bb352071c56cf08be64ef4",
+      "name" : "fraemworkSberCarthage",
+      "container" : "fraemworkSberCarthage.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator"
+    }
+  ]
+}

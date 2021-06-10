@@ -1,0 +1,11 @@
+framework module fraemworkSberCarthage {
+  umbrella header "fraemworkSberCarthage.h"
+
+  export *
+  module * { export * }
+}
+
+module fraemworkSberCarthage.Swift {
+    header "fraemworkSberCarthage-Swift.h"
+    requires objc
+}

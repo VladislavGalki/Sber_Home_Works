@@ -1,0 +1,38 @@
+BCSymbolMap Version: 2.0
+Apple clang version 12.0.5 (clang-1205.0.22.9)
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.5.sdk
+iPhoneOS14.5.sdk
+/Users/default/Library/Caches/org.carthage.CarthageKit/DerivedData/12.5_12E262/fraemworkSberCarthage/5d0c940ced062ab69c5a921704381bad8d9d4052/Build/Intermediates.noindex/ArchiveIntermediates/fraemworkSberCarthage/IntermediateBuildFilesPath/fraemworkSberCarthage.build/Release-iphoneos/fraemworkSberCarthage.build/DerivedSources/fraemworkSberCarthage_vers.c
+/Users/default/Documents/Sber_Home_Works/Lesson20-Carthage/Lesson20-Carthage/Carthage/Checkouts/fraemworkSberCarthage/fraemworkSberCarthage
+_$s21fraemworkSberCarthage16GSViewControllerC7nibName6bundleACSSSg_So8NSBundleCSgtcfcTo
+_$s21fraemworkSberCarthage16GSViewControllerC5coderACSgSo7NSCoderC_tcfcTo
+__METACLASS_DATA__TtC21fraemworkSberCarthage16GSViewController
+__INSTANCE_METHODS__TtC21fraemworkSberCarthage16GSViewController
+__DATA__TtC21fraemworkSberCarthage16GSViewController
+_$s21fraemworkSberCarthageMXM
+_symbolic So16UIViewControllerC
+_$s21fraemworkSberCarthage16GSViewControllerCMf
+_symbolic _____ 21fraemworkSberCarthage16GSViewControllerC
+_$s21fraemworkSberCarthage16GSViewControllerCMF
+__swift_FORCE_LOAD_$_swiftUIKit_$_fraemworkSberCarthage
+__swift_FORCE_LOAD_$_swiftDarwin_$_fraemworkSberCarthage
+__swift_FORCE_LOAD_$_swiftFoundation_$_fraemworkSberCarthage
+__swift_FORCE_LOAD_$_swiftObjectiveC_$_fraemworkSberCarthage
+__swift_FORCE_LOAD_$_swiftCoreFoundation_$_fraemworkSberCarthage
+__swift_FORCE_LOAD_$_swiftDispatch_$_fraemworkSberCarthage
+__swift_FORCE_LOAD_$_swiftCoreGraphics_$_fraemworkSberCarthage
+__swift_FORCE_LOAD_$_swiftCoreImage_$_fraemworkSberCarthage
+__swift_FORCE_LOAD_$_swiftMetal_$_fraemworkSberCarthage
+__swift_FORCE_LOAD_$_swiftQuartzCore_$_fraemworkSberCarthage
+___swift_reflection_version
+_objc_classes
+Apple clang version 12.0.5 (clang-1205.0.19.55)
+<swift-imported-modules>
+Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+/Users/default/Documents/Sber_Home_Works/Lesson20-Carthage/Lesson20-Carthage/Carthage/Checkouts/fraemworkSberCarthage/fraemworkSberCarthage/fraemworkSberCarthage/SomeViewController.swift
+deinit
+init
+<compiler-generated>
+$s21fraemworkSberCarthage16GSViewControllerCMa
+changeBackground
+Swift runtime failure: Unexpectedly found nil while implicitly unwrapping an Optional value
