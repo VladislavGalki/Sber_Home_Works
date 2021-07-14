@@ -1,0 +1,15 @@
+//
+//  module.modulemap
+//  Lesson31-Swift+ObjC
+//
+//  Created by Владислав Галкин on 14.07.2021.
+//
+
+module FirstObjLibrary {
+    umbrella header "../FirstObjLibrary/FirstUmbrella.h"
+    export *
+    
+    explicit module SecondObjLibrary {
+        umbrella header "../SecondObjLibrary/SecondUmbrella.h"
+    }
+}
